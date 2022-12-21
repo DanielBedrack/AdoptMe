@@ -1,0 +1,57 @@
+﻿@model IEnumerable<AdoptMe1.Models.Animal>
+
+@{
+    ViewBag.Title = "Pet Store - Cataloge";
+}
+
+<partial name="SelectBoxPartial" />
+<div class="container1 " style="margin-top:20px">
+    <div class="container d-flex flex-wrap">
+        @foreach (var animal in Model)
+        {
+            <div class="card-Block col-4 ">
+                <div class="card" style="width: 18rem; background-color: brown; color:white; margin-bottom:30px; ">
+                    <img src="@animal.ImageString " class="card-img-top" alt="@animal.Name"
+                     style="height:300px" />
+                    <div class="card-body style=background-color: brown; color:white;"></div>
+                    <ul class="list-group list-group-flus-rounded">
+                        <li class="list-group-item">Name: @animal.Name</li>
+                        <li class="list-group-item">Type: @animal.Type</li>
+                        <li class="list-group-item">Age: @animal.Age</li>
+                    </ul>
+                    <div class="card-body">
+                        <a class="myBtn" asp-controller="Catalog" asp-action="ShowDetails" asp-route-id="@animal.AnimalId"
+                       style="margin-right:auto;margin-left:auto;">Details</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("select").on("input", function () {
+            let selectedValue = $("#CategoryId").val();
+            window.location.href = "/Catalog/ShowByCategory/" + selectedValue;
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.custom-category-input').on("change", function () {
+            var categoryName = $(this).val().split * ("\\").pop();
+            $(this).next('.custom-category-label').html(categoryName);
+        });
+    })
+</script>
+
+
+
+
+
+
+
+
+

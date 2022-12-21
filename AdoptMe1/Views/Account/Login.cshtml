@@ -1,0 +1,26 @@
+﻿@model AdoptMe1.Models.Login
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+<div class="row mb-4 col-sm-10">
+    <form asp-action="Login" method="post">
+        <div class="row mb-3" style="margin-left:15%">
+            <label asp-for="UserName" class="col-sm-2 col-form-label lable">UserName </label>
+            <div class="col-sm-10">
+                <input asp-for="UserName" class="form-control border-info" id="exampleInputUserName">
+                <span asp-validation-for="UserName"></span>
+            </div>
+        </div>
+        <div class="row mb-3" style="margin-left:15%">
+            <label asp-for="Password" class="col-sm-2 col-form-label lable">Password </label>
+            <div class="col-sm-10">
+                <input asp-for="Password" type="password" class="form-control border-info" id="exampleInputPassword1">
+                <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn lable" style="margin-left:50%;height:8vh; width:20vh;">Login</button>
+    </form>
+</div>
+

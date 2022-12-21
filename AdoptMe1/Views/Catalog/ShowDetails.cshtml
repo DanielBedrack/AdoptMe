@@ -1,0 +1,48 @@
+﻿@using AdoptMe1.Models
+@model Animal
+
+@{
+    ViewBag.Title = "Pet Store - Details";
+}
+
+<div class="animalDetails">
+    <div>
+        <img src="@ViewBag.Animal.ImageString" asp-append-version="true" class="card-img-top rounded-circle" alt="@ViewBag.Animal.Name"
+             style="width:400px;height:400px" />
+    </div>
+    <div class="detailsBody rounded-5" style="width:90vh;">
+        <div style="margin-left:15px; margin-right:10px;">
+            <h3 >@ViewBag.Animal.Name</h3>
+            <label><b>Age: </b></label>
+            <span>@ViewBag.Animal.Age</span>
+            <br>
+            <lable><b>Description: </b> </lable>
+            <span>@ViewBag.Animal.Description</span>
+
+
+            <h2>Comments</h2>
+            <div class="petComments">
+                @foreach (var c in ViewBag.Comments)
+                {
+                    <p><b>-</b>@c.Comments</p>
+                }
+
+                <form asp-controller="Catalog" asp-action="AddComment" class="nav-link" method="post" aria-current="page">
+                    <div>
+                        <label asp-for="Comments"><b>Add new comment:</b> </label>
+                        <textarea name="newComment" placeholder=" " class="form-control border-info coment"
+                                  rows="4"></textarea>
+                        <input type="hidden" name="animalid" value="@ViewBag.Animal.AnimalId">
+                        <span asp-validation-for="Comments" class="text-bg-danger"></span>
+                        <button type="submit" class="btn navi" style="margin:10px;height:8vh;
+                            width:20vh; margin-left:30vh;">
+                            Add
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+

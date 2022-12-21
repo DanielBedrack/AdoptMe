@@ -1,0 +1,19 @@
+﻿<label class="custom-category-label"></label>
+<select id="CategoryId" name="CategoryId" title="CategoryId" class="myBtn custom-category-input" style="margin-left:40%; margin-top:10px; ">
+    <option name="" disabled hidden selected>Select Category</option>
+    <option value="0">All</option>
+    @foreach (var category in ViewBag.Category)
+    {
+        <option name="CategoryId" value="@category.CategoryId">@category.CategoryName</option>
+    }
+</select>
+<script>
+    $(function () {
+        $("select").on("input", function () {
+            let selectedValue = $("#CategoryId").val();
+            window.location.href = "/Admin/ShowByCategory/" + selectedValue;
+        });
+    });
+</script>
+
+
