@@ -16,6 +16,7 @@ namespace AdoptMe1.Repositories
         bool PasswordConfirm(string password);
         Task<List<Animal>> GetTopTwoAsync();
         //
+        //
         void InsertAnimal(Animal animal);
         void DeleteAnimal(int id);
         void InsertComment(Comment comment);
